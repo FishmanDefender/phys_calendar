@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+
+<link rel="stylesheet" href="css\new_style.css">
+
+<!-- The following links to Font Awesome, which is the source of the drop-down arrows -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+ <script src="javascript/dropdown.js"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home | Physics Calendar</title>
+
+
+</head>
+<body>
+
+    <!-- This defines the top header containing the site title and slogan. -->
+    <div class="header">
+        <h1>The Physics Calendar</h1>
+        <h4> - A schedule of major experimental physics projects around the world - </h4>
+    </div>
+
+    <!-- This is the wrapper for the Navigation (Nav) Bar. -->
+    <div class="navbar-wrapper">
+        <div class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <!-- Add links to additional pages above this line. -->
+        </div>
+    </div>
+
+    <!-- This is the "main" body of information, containing everything that isn't the header or navbar. -->
+    <div class="content">
+
+        <!-- Section 1 is the first paragraph of the page. All paragrapgs with similar formating should also be given this class. -->
+        <div class="section1">
+
+            <!-- Use the id="section" tag to add an underline your section title. -->
+            <h3 id="section">Home</h3>
+            <p> Experimental physics today relies on huge international collaborations, built by thousands of scientists over multiple decades.
+               These massive engineering projects are pushing the limits of modern technology to probe the universe with unimaginable precision.
+               As a couple of passionate graduate students, we decided to build this website to present an accessible calendar
+               of major upcoming milestones for some of humanity's biggest and most awe-inspiring projects.</p>
+
+            <p>We're still under construction, so not everything is up here yet!</p>
+        </div>
+
+        <br>
+
+        <!-- Section 1 is reused here because it has the same formatting as section1 above. -->
+        <div class="section1">
+
+            <!-- Use the id="section" tag to add an underline your section title. -->
+            <h3 id="section">Tracked Projects</h3>
+
+            <br>
+
+<!--===============================================================================================================
+                                            project-container
+
+This is the project-container. Within its looming alabaster walls lies all of the information needed to create
+ one of the project schedule menus. I'll try to comment this portion rather extensively so it can be copy and pasted
+ easily. Future instances of this project-container will not be as thoroughly explained.
+=================================================================================================================-->
+
+            <div class="project-container">
+
+                <!-- project-title is, naturally, the hyperlinked plaintext that appears above the project schedule menu. -->
+                <h6 class="project-title"><a href="https://eventhorizontelescope.org/">EHT</a></h6>
+
+                <!-- mid-content is the part of the project-container that is actually clickable (besides the title hyperlink). So long as the user
+                 clicks within the boundary of the mid-content block, the project schedule menu will open. The href below tells this div to listen
+                 for user events. When the "onclick" event is triggered, this calls the dropdown() function in the folder javascript/dropdown.js.
+
+                 WARNING: This function MUST recieve a single argument that corresponds to the tailing index of the "arrow" and "schedule"
+                 ids below.
+
+                NOTE: For example, if I wanted dropdown() to affect the arrow with id="arrow1", I would call dropdown(1). dropdown() affects
+                BOTH the arrow image and the div with class="schedule", so these items tailing indicies MUST match.-->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(1)">
+
+                    <!-- The following item is the arrow image from Font Awesome (line 8, above). -->
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow1"></i></a><li>
+
+                    <!-- This is the image of the project. -->
+                    <li><img src="images/EHT.png" alt="image1" style="width:128px;height:128px;"><li>
+
+                    <!-- This is the "preview" description that shows before expanding the menu. This should be a general description of the
+                    project. A detailed description of the next event can come below. -->
+                    <li>The Event Horizon Telescope (EHT) is an international collaboration aiming to capture
+                    the first image of a black hole by creating a virtual Earth-sized telescope.</li>
+
+                    <!-- The div below is the schedule class object. This object is directly changed by the javascript function to the class
+                     schedule-open. On page load, schedule has the property {display: none} which prevents it from displaying. schedule-open
+                     changes this to {display: block} which will display each "set" of the schedule above the next. -->
+                    <div class="schedule" id="schedule1">
+
+                        <!-- This header gets id="section" to inherit that formatting. -->
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- Each "set" element is composed of three sub-elements. The first is the [DATE] element, indicating the date of the next
+                         event. The second is the [EVENT] element, indicating the "title" or "name" of the event, and the last element is the
+                         [DESCRIPTION] element, which should contain a brief overview of why the event is significant and what it hopes to achieve.
+                        -->
+                        <div class="set">
+
+                            <!-- The date element is center aligned and occupies 15% of the mid-content window. -->
+                            <li id="date-element">Soon 2018</li>
+
+                            <!-- The event element is left aligned and occupies 15% of the mid-content window.-->
+                            <li id="event-element">First Results</li>
+
+                            <!-- The description is left aligned and occupies 60% of the mid-content window  -->
+                            <li id="description">These first results will be the first time we've ever directly imaged a black hole. The physics that can be learned just from an image will likely lead to further advancements in our understanding of black hole dynamics.</li>
+                        </div>
+
+                        <!-- This set is identical to the one above and will display below it. This has set has been retained to demostrate this
+                         formatting. -->
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://www.ligo.org/">LIGO</a></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(2)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow2"></i></a><li>
+                    <li><img src="images/LIGO.jpg" alt="image2" style="width:128px;height:128px;"><li>
+                    <li>The Laser Interferometer Gravitational-wave Observatory (LIGO) detected gravitational waves directly
+                    for the first time in history on September 14, 2015. In 2017 it made history again by detecting a binary neutron star merger for the first time.
+                  LIGO is currently being upgraded to Advanced Ligo, which will be about a factor of two more sensitive. We can't wait to see what it will find next!</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule2">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">Early 2019</li>
+                            <li id="event-element"> Operating Run 3</li>
+                            <li id="description">LIGO is currently in the "installation" phase of the operating run 3 (O3). Once this phase is complete, they can begin the commisioning phase, which will assure everything is working before their pre-O3 engineering run.</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- ================================================== </COPY> =============================================================== -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://home.cern/about/experiments/atlas">ATLAS</a></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(3)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow3"></i></a><li>
+                    <li><img src="images/ATLAS.jpg" alt="image3" style="width:128px;height:128px;"><li>
+                    <li>The ATLAS collaboration is one of several collaborations working with the largest particle accelerator in the world, the Large Hadron Collider (LHC). This project aims to ... [FINISH UPDATE AT NOT 1AM] </li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule3">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2019 - 2020</li>
+                            <li id="event-element">ATLAS Phase I Upgrade</li>
+                            <li id="description">The ATLAS Phase I <a href="https://cds.cern.ch/record/2195333/files/ATL-UPGRADE-PROC-2016-003.pdf">Upgrade</a> will update the injectors and collimators, upgrade the Linac2 with the Linac4, a much more powerful proton linear accelerator, install the new Muon Small Wheels, and introduce new trigger schemes. The latter two of these are designed to handle energies much higher than the LHC currently produces.</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">2024 - 2026</li>
+                            <li id="event-element">ATLAS Phase II Upgrade</li>
+                            <li id="desciption">[DESCRIPTION WILL BE ADDED NOT AT 1AM]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="http://gwcenter.icrr.u-tokyo.ac.jp/en/">KAGRA<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(4)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow4"></i></a><li>
+                    <li><img src="images/KAGRA.jpg" alt="image4" style="width:128px;height:128px;"><li>
+                    <li>The Kamioka Gravitational wave detector (KAGRA) is Japan's contribution to the exciting
+                      new field of gravitational wave astronomy. It will join the LIGO-Virgo collaboration around 2020.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule4">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2020</li>
+                            <li id="event-element">Operating Run 1</li>
+                            <li id="description">When KAGRA comes online, the expected increase in sensitivity to gravitational wave detection of the combined LIGO/VIRGO/KAGRA collaboration will be around [SOME ACCURATE FIGURE I'LL FIND AT NOT 1AM].</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://jwst.nasa.gov/about.html">JWST<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(5)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow5"></i></a><li>
+                    <li><img src="images/JWST.jpg" alt="image5" style="width:128px;height:128px;"><li>
+                    <li>The James Webb Space Telescope (JWST) is the premier next-gen space observatory,
+                    with a 6.5m infrared telescope.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule5">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2021</li>
+                            <li id="event-element">Launch from European Spaceport</li>
+                            <li id="description">Launched on the Ariane 5 rocket, part of the European Space Agency's (ESA) contribution to the James Webb mission, the JWST will begin its 30-day journey to the Second Sun-Earth Lagrange Point (L2).</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="http://www.spacex.com/mars">SPACEX<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(6)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow6"></i></a><li>
+                    <li><img src="images/SPACEX.jpg" alt="image6" style="width:128px;height:128px;"><li>
+                    <li>Elon Musk is a man on a mission. Will he succeed in his ultimate quest to make
+                      humankind a multi-planetary species? We'll have to find out! Before a manned mission, they will
+                      send at least one unmanned probe to test the technology and deliver a payload to the Martian surface.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule6">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">Early 2020's</li>
+                            <li id="event-element">Red Dragon: Unmanned Mars Probe</li>
+                            <li id="description">[A TOTALLY AWESOME DESCRIPTION ABOUT HOW THIS PROJECT IS GOING TO ROCK YOUR SOCKS ALL THE WAY TO 1AM]</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://www.lsst.org/about/timeline">LSST<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(7)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow7"></i></a><li>
+                    <li><img src="images/LSST.jpg" alt="image7" style="width:128px;height:128px;"><li>
+                    <li>The Large Synoptic Survey Telescope (LSST) in Chile will compile the largest public data set in the world.
+                       Probing the nature of dark matter, dark enery, and more.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule7">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2020</li>
+                            <li id="event-element">First Light</li>
+                            <li id="description">LSST is on-track to get its first images some time in 2020.</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">2023</li>
+                            <li id="event-element">Full Science Operations</li>
+                            <li id="desciption">In 2023, LSST will begin its <a href="http://optics.org/news/7/6/39">decade-long</a> survey of the entire night sky.</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://www.iter.org/">ITER<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(8)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow8"></i></a><li>
+                    <li><img src="images/ITER.jpg" alt="image8" style="width:128px;height:128px;"><li>
+                    <li>The world's largest nuclear fusion reactor, ITER, is currently being built in southern France.
+                      It will use a tokamak powered by superconducting magnets to fuse a plasma of Deutrerium and Tritium into Helium.
+                      The ITER team hopes to create the first net-positive energy fusion reactor, and unlock a new form of energy
+                      production for humanity.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule8">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2025</li>
+                            <li id="event-element">First Plasma</li>
+                            <li id="description">[THIS DESCRIPTION WILL BE ABOUT PLASMA; PLASMA THAT HAPPENS PROBABLY NOT AT 1:30AM]</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="http://www.dunescience.org/">DUNE<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(9)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow9"></i></a><li>
+                    <li><img src="images/DUNE.jpg" alt="image9" style="width:128px;height:128px;"><li>
+                    <li>The Deep Underground Neutrino Experiment (DUNE) will consist of two neutrino detectors placed in the world’s most intense neutrino beam.
+                      One near the source of the beam at FermiLab, and a second, much larger detector more than a kilometer underground at the Sanford Underground Research Laboratory
+                      in South Dakota — 1,300 kilometers downstream of the source. These detectors will enable scientists to search for new subatomic phenomena
+                      and potentially transform our understanding of neutrinos and their role in the universe.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule9">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">2026</li>
+                            <li id="event-element">Neutrino Beam Operation</li>
+                            <li id="description">[DESCRIPTION TO COME, BUT NOT AT 1:30AM]</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =============================================== <COPY THIS LINE> ============================================================ -->
+
+            <!-- This project-container is identical to the one above it. For reference, look at the documentation above. -->
+            <div class="project-container">
+
+                <h6 class="project-title"><a href="https://lisa.nasa.gov/">LISA<a/></h6>
+
+                <!-- NOTE: here, dropdown() has the argument "2" to match "arrow2" and "schedule2". -->
+                <div class="mid-content"  href="javascript:void(0)" onclick="dropdown(10)">
+                    <li><a class="icon"><i class="fas fa-angle-right fa-lg" id="arrow10"></i></a><li>
+                    <li><img src="images/LISA.png" alt="image10" style="width:128px;height:128px;"><li>
+                    <li>The Laser Interferometer Space Antenna (LISA) is a space-based observatory
+                    composed of three spacecraft in an equilateral triangle 1 million miles on each side.
+                    It will be able to detect gravitational waves of longer wavelength than LIGO, probing
+                    super-massive black hole mergers and extreme mass ratio inspirals.</li>
+
+                  <!-- NOTE: the class remains the same as the div above. ONLY the id changes! -->
+                    <div class="schedule" id="schedule10">
+                        <h4 id="section">Schedule</h4>
+
+                        <!-- NOTE: "set" classes are NOT numbered. This is for CSS formating ONLY. No JavaScript acts on these elements. -->
+                        <div class="set">
+                            <li id="date-element">Approximately 2034</li>
+                            <li id="event-element">Launch</li>
+                            <li id="description">[ONE MUST WONDER WHETHER LISA WILL LAUNCH AT 1:30AM...]</li>
+                        </div>
+                        <div class="set">
+                            <li id="date-element">[DATE]</li>
+                            <li id="event-element">[EVENT]</li>
+                            <li id="desciption">[DESCRIPTION]</li>
+                        </div>
+                        <!-- To add more events, copy and paste the div of class "set" and paste it above this line. -->
+                    </div>
+
+                </div>
+            </div>
+
+            <br> <!-- Page break is needed to separate project-containers. -->
+
+<!-- =================================== PASTE PROJECT-CONTAINERS ABOVE THIS LINE ============================================= -->
+
+        </div>
+
+        <br>
+        <p id="footer">Last updated: 2018-07-08 <br>
+        © Will Lockhart & Michael Schott 2018</p>
+
+    </div>
+
+</body>
+
+</html>

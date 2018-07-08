@@ -1,0 +1,206 @@
+
+/* NOTE: All dates in this document should take the form of YYYY-MM-DD */
+
+/*******************************************************************************
+*                             General Formating
+*
+*   This section sets the format for the body and header sections.
+*
+*   WARNING: I am very bad at CSS still, so there are likley lines in here that
+*   don't do anything or do the same thing as a line in a parent class. I'll be
+*   coming back to clean this up a bit in the near future. (2018-07-08 12:29am)
+*
+*******************************************************************************/
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+    background-color: #fff;                               /* White Background */
+    font-family: verdana;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    display: block;
+    text-align: center;
+}
+
+#section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+    width: 10vw;
+    margin: auto;
+}
+
+/*******************************************************************************
+*                             Header and Navbar
+*
+*   This section sets the format for the specified div classes, which correspond
+*   to elements of the header and navbar sections.
+*
+*******************************************************************************/
+
+.header {
+    background: #fff;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    left: 0;
+    top: 0
+}
+
+.navbar-wrapper {
+    border-bottom: 2px solid #bbb;
+    border-top: 2px solid #bbb;
+    margin: 0;
+    background-color: #fff;
+    overflow: auto;
+}
+
+.navbar {
+    margin: auto;
+    width: 80vw;
+}
+
+.navbar li{
+    list-style-type: none;
+    display: block;
+    float: left;
+}
+
+.navbar li:not(:last-child) {                       /*This segment is optional*/
+    /* border-right: 1px solid #bbb;*/ /*Enable if navbar dividers are desired*/
+}
+
+.navbar li a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 16px 28px;
+}
+
+.navbar li a:hover {
+    background-color: #bbb;
+}
+
+/*******************************************************************************
+*                                   Content
+*
+*   This is where most changes have occured. The fundamental differences here
+*   between the new and old way of displaying data is that here we avoid using
+*   the table element in favor for a dynamic drop-down element.
+*
+*******************************************************************************/
+
+/* .section1 {
+    border-bottom: 1px solid #bbb
+} */
+
+.content {
+    width: 80vw;
+    margin: auto;
+    padding-top: 20px;
+    align-items: center;
+}
+
+.project-container {
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    display: block;
+    overflow: auto;
+}
+
+.project-title {
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+}
+
+.project-title a {
+    text-decoration: none;
+    padding: 8px 14px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00a;
+    border-bottom: 1px solid #bbb;
+}
+
+.project-title a:hover {
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    background-color: #eee;
+    color: #008;
+    border-bottom: 2px solid #999;
+}
+
+.mid-content {
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    padding: 20px;
+    display: inline-block;
+    list-style-type: none;
+    background: #eee;
+    overflow: auto;
+}
+
+.mid-content:hover {
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.mid-content li {
+    max-width: 70%;
+    padding: 10px;
+    display: inline-block;
+    margin: auto;
+    vertical-align: middle;
+}
+
+.schedule {
+    display: none;
+}
+
+.schedule-open li {
+    list-style-type: none;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.schedule-open {
+    margin: auto;
+    padding: 20px;
+    padding-top: 0px;
+    display: block;
+}
+
+#date-element {
+    width: 15%;
+    text-align: center;
+}
+
+#event-element {
+    width: 15%;
+    text-align: left;
+}
+
+#description {
+    width: 60%;
+    text-align: left;
+}
+
+#footer {
+    padding-top: 400px;
+    font-size: 10px;
+}
